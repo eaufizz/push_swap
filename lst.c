@@ -6,7 +6,21 @@
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 23:47:42 by sreo              #+#    #+#             */
-/*   Updated: 2024/08/12 23:47:43 by sreo             ###   ########.fr       */
+/*   Updated: 2024/09/07 17:14:28 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+int	ft_lstsize(t_list *lst)
+{
+	int	count;
+
+	count = 0;
+	while (lst != NULL)
+	{
+		count ++;
+		lst = lst->next;
+	}
+	return (count);
+}

@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   stack_operation.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/12 19:23:15 by sreo              #+#    #+#             */
-/*   Updated: 2024/09/07 17:16:50 by sreo             ###   ########.fr       */
+/*   Created: 2024/09/07 16:48:11 by sreo              #+#    #+#             */
+/*   Updated: 2024/09/07 18:05:06 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-#include "ft_printf/ft_printf.h"
-
-typedef struct s_list
+#include "push_swap.h"
+int	swap(t_list **stack)
 {
-	int				value;
-	int				index;
-	struct s_list	*next;
-}t_list;
+	t_list	*first;
+	t_list	*next;
 
-int	arg_count(char **args);
-int	ft_lstsize(t_list *lst);
-
-
-#endif
+	if(ft_lstsize(stack) < 2)
+		return (1);
+	first = stack;
+	next = first->next;
+	
+}
