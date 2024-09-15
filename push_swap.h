@@ -6,7 +6,7 @@
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 19:23:15 by sreo              #+#    #+#             */
-/*   Updated: 2024/09/07 17:16:50 by sreo             ###   ########.fr       */
+/*   Updated: 2024/09/15 19:07:15 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ typedef struct s_list
 
 int	arg_count(char **args);
 int	ft_lstsize(t_list *lst);
-
 
 #endif
