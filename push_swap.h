@@ -6,7 +6,7 @@
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 19:23:15 by sreo              #+#    #+#             */
-/*   Updated: 2024/09/15 19:07:15 by sreo             ###   ########.fr       */
+/*   Updated: 2024/09/18 21:41:32 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 #include "ft_printf/ft_printf.h"
+#include <stdbool.h>
 
 typedef struct s_list
 {
