@@ -6,7 +6,7 @@
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 19:21:35 by sreo              #+#    #+#             */
-/*   Updated: 2024/09/15 19:05:25 by sreo             ###   ########.fr       */
+/*   Updated: 2024/09/29 14:56:32 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,29 @@ int	checkarg(int argc, char **argv)
 	return (0);
 }
 
+int	arg_to_stack(t_list **stack_a, int argc, char **argv)
+{
+	char	**temp;
+	int		i;
+
+	i = 1;
+	if (argc == 2)
+		temp = ft_split(argv[1], ' ');
+	else
+		temp = argv;
+	while(temp[i])
+	{
+		*stack_a->
+	}
+}
+
 int	main(int argc, char **argv)
 {
+	t_list	stack_a;
+	t_list	stack_b;
 	// ft_printf("%d\n", argc);
 	// ft_printf("%d\n", arg_count(argv));
 	if (argc < 2 || checkarg(argc, argv))
 		return (1);
-	return 0;
+	return (0);
 }
