@@ -6,7 +6,7 @@
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 23:47:42 by sreo              #+#    #+#             */
-/*   Updated: 2024/09/29 15:33:42 by sreo             ###   ########.fr       */
+/*   Updated: 2024/10/13 20:13:02 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,15 @@ int	ft_lstsize(t_list *lst)
 	return (count);
 }
 
-t_list *ft_lstnew()
+t_list	*ft_lstnew(int value)
 {
-	
+	t_list	*temp;
+
+	temp = malloc(sizeof(t_list));
+	if (temp == NULL)
+		return (NULL);
+	temp->value = value;
+	temp->index = -1;
+	temp->next = NULL;
+	return (temp);
 }

@@ -6,7 +6,7 @@
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 16:48:11 by sreo              #+#    #+#             */
-/*   Updated: 2024/09/29 13:52:50 by sreo             ###   ########.fr       */
+/*   Updated: 2024/10/13 20:10:18 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	rra(t_list **stack_a)
 {
 	if (reverse_rotate(stack_a) == false)
 		return (1);
-	ft_putendl_fd(1, "rra");
+	ft_putendl_fd("rra", 1);
 	return (0);
 }
 
@@ -47,7 +47,7 @@ int	rrb(t_list **stack_b)
 {
 	if (reverse_rotate(stack_b) == false)
 		return (1);
-	ft_putendl_fd(1, "rrb");
+	ft_putendl_fd("rrb", 1);
 	return (0);
 }
 
@@ -57,6 +57,6 @@ int	rrr(t_list **stack_a, t_list **stack_b)
 		return (1);
 	if (reverse_rotate(stack_b) == false)
 		return (1);
-	ft_putendl_fd(1, "rrr");
+	ft_putendl_fd("rrr", 1);
 	return (0);
 }

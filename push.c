@@ -6,7 +6,7 @@
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 13:47:31 by sreo              #+#    #+#             */
-/*   Updated: 2024/09/29 13:49:45 by sreo             ###   ########.fr       */
+/*   Updated: 2024/10/13 20:10:34 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	pa(t_list **stack_a, t_list **stack_b)
 {
 	if (push(stack_a, stack_b) == false)
 		return (1);
-	ft_putendl_fd(1, "pa");
+	ft_putendl_fd("pa", 1);
 	return (0);
 }
 
@@ -37,6 +37,6 @@ int	pb(t_list **stack_b, t_list **stack_a)
 {
 	if (push(stack_b, stack_a) == false)
 		return (1);
-	ft_putendl_fd(1, "pb");
+	ft_putendl_fd("pb", 1);
 	return (0);
 }
