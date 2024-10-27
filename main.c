@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: boss <boss@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 19:21:35 by sreo              #+#    #+#             */
-/*   Updated: 2024/10/13 20:36:28 by sreo             ###   ########.fr       */
+/*   Updated: 2024/10/27 18:27:37 by boss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_digit(char **temp)
 	{
 		while (temp[i][j])
 		{
-			if (ft_isdigit(temp[i][j]) == 0)
+			if (ft_is_digit(temp[i]) == 0)
 				return (1);
 			j++;
 		}
@@ -57,7 +57,6 @@ int	arg_to_stack(t_list **stack_a, char **argv)
 	return (0);
 }
 
-
 int	convert_arg(char ***argv)
 {
 	char	*temp;
@@ -74,18 +73,35 @@ int	convert_arg(char ***argv)
 	return (0);
 }
 
-void	print_stack(t_list *stack)
+int	set_index(t_list **stack_a, int stack_len)
 {
-	t_list	*current = stack;
+	int		i;
+	int		min_value;
+	t_list	*temp;
+	t_list	*min_node;
 
-	while (current != NULL)
+	i = -1;
+	while (++i < stack_len)
 	{
-		ft_printf("%d\n", current->value); // 各ノードの値を表示
-		current = current->next; // 次のノードに移動
+		min_value = INT_MAX;
+		min_node = NULL;
+		temp = *stack_a;
+		while (temp)
+		{
+			if (temp->value == min_value && temp->index == -1)
+				return (1);
+			if (temp->value < min_value && temp->index == -1)
+			{
+				min_node = temp;
+				min_value = temp->value;
+			}
+			temp = temp->next;
+		}
+		min_node->index = i;
 	}
+	return (0);
 }
 
-int set_index()
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
@@ -98,6 +114,8 @@ int	main(int argc, char **argv)
 	arg_to_stack(&stack_a, argv);
 	if (argc == 2)
 		ft_free_split(argv);
+	if (set_index(&stack_a, ft_lstsize(stack_a)))
+		return (1);
 	print_stack(stack_a);
 	return (0);
 }

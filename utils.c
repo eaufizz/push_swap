@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: boss <boss@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 00:15:26 by sreo              #+#    #+#             */
-/*   Updated: 2024/10/13 19:11:06 by sreo             ###   ########.fr       */
+/*   Updated: 2024/10/27 18:26:54 by boss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,38 @@ void	ft_free_split(char **split)
 		i++;
 	}
 	free(split);
+}
+
+int	ft_is_digit(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str[i] == '\0')
+		return (0);
+	if (str[i] == '-')
+	{
+		i++;
+		if (str[i] == '\0')
+			return (0);
+	}
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void	print_stack(t_list *stack)
+{
+	t_list	*current;
+
+	current = stack;
+	while (current != NULL)
+	{
+		ft_printf("%d\t%d\n", current->value, current->index);
+		current = current->next;
+	}
 }
