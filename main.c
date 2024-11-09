@@ -6,7 +6,7 @@
 /*   By: boss <boss@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 19:21:35 by sreo              #+#    #+#             */
-/*   Updated: 2024/10/27 18:27:37 by boss             ###   ########.fr       */
+/*   Updated: 2024/11/10 01:49:55 by boss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,14 @@ int	main(int argc, char **argv)
 		ft_free_split(argv);
 	if (set_index(&stack_a, ft_lstsize(stack_a)))
 		return (1);
-	print_stack(stack_a);
+	// print_stack(stack_a);
+	if (is_sorted(stack_a))
+	{
+		// ft_printf("not sorted\n");
+		sort_stack(&stack_a, &stack_b);
+	}
+	// else
+		// ft_printf("sorted\n");
+	// print_stack(stack_a);
 	return (0);
 }

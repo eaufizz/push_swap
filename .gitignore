@@ -1,0 +1,5 @@
+a.out
+*.a
+*.o
+push_swap
+result.txt

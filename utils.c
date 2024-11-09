@@ -6,7 +6,7 @@
 /*   By: boss <boss@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 00:15:26 by sreo              #+#    #+#             */
-/*   Updated: 2024/10/27 18:26:54 by boss             ###   ########.fr       */
+/*   Updated: 2024/11/09 16:49:48 by boss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,15 @@ int	ft_is_digit(char *str)
 	return (1);
 }
 
-void	print_stack(t_list *stack)
+int		max_bit(int nbr)
 {
-	t_list	*current;
+	int i;
 
-	current = stack;
-	while (current != NULL)
+	i = 0;
+	while(nbr / 2 >= 1)
 	{
-		ft_printf("%d\t%d\n", current->value, current->index);
-		current = current->next;
+		nbr /= 2;
+		i++;
 	}
+	return (i);
 }
