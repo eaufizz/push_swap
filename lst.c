@@ -6,7 +6,7 @@
 /*   By: boss <boss@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 23:47:42 by sreo              #+#    #+#             */
-/*   Updated: 2024/11/09 16:30:46 by boss             ###   ########.fr       */
+/*   Updated: 2024/11/10 23:50:45 by boss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ void	print_stack(t_list *stack)
 	}
 }
 
-int	is_sorted(t_list *stack)
+int	is_sorted(t_list *stack, int i)
 {
 	int		index;
 	t_list	*current;
 
-	index = 0;
+	index = 0 + i;
 	current = stack;
 	while (current != NULL)
 	{

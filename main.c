@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: boss <boss@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 19:21:35 by sreo              #+#    #+#             */
-/*   Updated: 2024/11/10 09:50:58 by sreo             ###   ########.fr       */
+/*   Updated: 2024/11/10 23:52:58 by boss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,21 +109,24 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (argc == 1 || (argc == 2 && convert_arg(&argv)) || check_digit(argv))
-		return (1);
+	if (argc == 1)
+		return (0);
+	if (argc == 2 && convert_arg(&argv))
+		return (ft_printf("Error: split failed\n"), 1);
+	if (check_digit(argv))
+		return (ft_printf("Error: invalid digid\n"), 1);
 	arg_to_stack(&stack_a, argv);
 	if (argc == 2)
 		ft_free_split(argv);
 	if (set_index(&stack_a, ft_lstsize(stack_a)))
-		return (1);
-	// print_stack(stack_a);
-	if (is_sorted(stack_a))
+		return (ft_printf("Error: is duplicate\n"), 1);
+	if (is_sorted(stack_a, 0))
 	{
-		// ft_printf("not sorted\n");
-		sort_stack(&stack_a, &stack_b);
+		if (ft_lstsize(stack_a) < 6)
+			simple_sort(&stack_a, &stack_b);
+		else
+			sort_stack(&stack_a, &stack_b);
 	}
-	// else
-		// ft_printf("sorted\n");
-	// print_stack(stack_a);
+	print_stack(stack_a);
 	return (0);
 }

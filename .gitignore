@@ -3,4 +3,4 @@ a.out
 *.o
 push_swap
 result.txt
-checker_linux
+test.sh
