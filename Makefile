@@ -2,7 +2,15 @@ NAME = push_swap
 CC = cc
 CFLAG = -Wall -Wextra -Werror
 LIB = ft_printf/libftprintf.a
-SRCS = *.c
+SRCS = main.c		\
+		lst.c		\
+		push.c		\
+		reverse_rotate.c	\
+		rotate.c	\
+		sort.c		\
+		swap.c		\
+		utils.c
+
 
 all: $(NAME)
 $(NAME): $(LIB)
@@ -14,7 +22,7 @@ clean:
 	make -C ft_printf clean
 
 fclean: clean
-	rm -f $(NAME) ft_printf/libftprintf
+	rm -f $(NAME) ft_printf/libftprintf.a
 
 re: fclean all
 
