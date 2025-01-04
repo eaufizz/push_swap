@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boss <boss@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 19:21:35 by sreo              #+#    #+#             */
-/*   Updated: 2024/11/10 23:52:58 by boss             ###   ########.fr       */
+/*   Updated: 2025/01/04 17:37:02 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,20 @@ int	check_digit(char **temp)
 	return (0);
 }
 
-int	arg_to_stack(t_list **stack_a, char **argv)
+int	arg_to_stack(t_list **stack_a, char ***argv)
 {
 	int		i;
 	t_list	*list;
 	t_list	*new_node;
 
 	i = 1;
-	*stack_a = ft_lstnew(ft_atoi(argv[i]));
+	*stack_a = ft_lstnew(ft_atoi((*argv)[i]));
 	if (*stack_a == NULL)
 		return (1);
 	list = *stack_a;
-	while (argv[++i])
+	while ((*argv)[++i])
 	{
-		new_node = ft_lstnew(ft_atoi(argv[i]));
+		new_node = ft_lstnew(ft_atoi((*argv)[i]));
 		if (new_node == NULL)
 			return (1);
 		list->next = new_node;
@@ -112,12 +112,11 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	if (argc == 2 && convert_arg(&argv))
-		return (ft_printf("Error: split failed\n"), 1);
-	if (check_digit(argv))
-		return (ft_printf("Error: invalid digid\n"), 1);
-	arg_to_stack(&stack_a, argv);
-	if (argc == 2)
-		ft_free_split(argv);
+		return (ft_free_split(argv), ft_printf("Error\n"), 1);
+	if (check_digit(argv) || arg_to_stack(&stack_a, &argv))
+	{
+		return (ft_printf("Error\n"), 1);
+	}
 	if (set_index(&stack_a, ft_lstsize(stack_a)))
 		return (ft_printf("Error: is duplicate\n"), 1);
 	if (is_sorted(stack_a, 0))
@@ -127,6 +126,5 @@ int	main(int argc, char **argv)
 		else
 			sort_stack(&stack_a, &stack_b);
 	}
-	print_stack(stack_a);
-	return (0);
+	return (free_lst(&stack_a), 0);
 }

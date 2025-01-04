@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boss <boss@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 23:47:42 by sreo              #+#    #+#             */
-/*   Updated: 2024/11/10 23:50:45 by boss             ###   ########.fr       */
+/*   Updated: 2025/01/04 15:32:39 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,16 @@ int	is_sorted(t_list *stack, int i)
 		index++;
 	}
 	return (0);
+}
+
+void	free_lst(t_list **lst)
+{
+	t_list	*next_lst;
+
+	while (*lst != NULL)
+	{
+		next_lst = (*lst)->next;
+		free(*lst);
+		*lst = next_lst;
+	}
 }

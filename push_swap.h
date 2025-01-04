@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boss <boss@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 19:23:15 by sreo              #+#    #+#             */
-/*   Updated: 2024/11/10 23:51:10 by boss             ###   ########.fr       */
+/*   Updated: 2025/01/04 15:43:16 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		max_bit(int nbr);
 t_list	*ft_lstnew(int value);
 void	print_stack(t_list *stack);
 void	ft_free_split(char **split);
+void	free_lst(t_list **lst);
 int		arg_count(char **args);
 int		ft_lstsize(t_list *lst);
 int		ft_is_digit(char *str);
